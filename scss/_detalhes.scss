@@ -1,0 +1,64 @@
+.detalhes{
+    @include flx(align-items, flex-start);
+    flex-direction: column;
+    width: 70%;
+    margin: 3rem auto;
+    padding: 2rem;
+    gap: 2rem;
+
+    @include for-phone-only{
+        width: 90%;
+    }
+
+    &__titulo{
+        @include titulo;
+        position: relative;
+        width: 100%;
+
+        &::before{
+            content: '03';
+            border-right: 2px solid $cor-fonte;
+            position: absolute;
+            left: -60px;
+            padding: 1rem;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        @include for-phone-only{
+            &::before{
+                display: none;
+            }
+        }
+
+        &::after{
+            content: '';
+            width: 5rem;
+            height: .3rem;
+            background-color: $cor-fonte;
+            position: absolute;
+            right: 10px;
+        }
+    }
+    &__p{
+        @include subtitulo;
+        max-width: 50rem;
+    }
+    &__botao{
+        @include botao;
+        align-self: flex-end;
+        padding: 1rem 5rem;
+        position: relative;
+        &::before{
+            content:'→';
+            color: $cor-fonte;
+            font-size: 3rem;
+            font-weight: 700;
+            position: absolute;
+            left: -80px;
+            top: 50%;
+            transform: translateY(-57%);
+
+        }
+    }
+}

@@ -1,0 +1,100 @@
+$branco: #FFF ;
+$cor-fonte: #13293d;
+$cinza-claro: #919191;
+$cinza-escuro: #4d4e50;
+$vermelho: #f63954;
+
+
+%font-padrao{font-family:'Open Sans Condensed', sans-serif;}
+
+//FUNCAO Q CONVETE PX EM REM
+@function calculaRem($Size){
+    @return $Size / 16px * 1rem;
+}
+
+
+//ESTILO PADRAO PARA BOTAO
+@mixin botao {
+    @include fontSize(14px);
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    padding: .5rem 4rem;
+    color: $branco;
+    background-color: $vermelho;
+    @extend %font-padrao;
+    font-weight: 600;
+    border: none;
+    transition: all .3s;    
+    &:hover{
+        background-color: $cor-fonte;
+        color: $branco;
+    }
+}
+
+//TAMANHO DE FONTE / CONVERTE PX EM REM
+@mixin fontSize($Size){
+    font-size: $Size;
+}
+
+//ESTILO PADRAO PARA LINKS
+@mixin links {
+    @include fontSize(14px);
+    color: $cor-fonte;
+    font-weight: 300;
+    @extend %font-padrao;
+    letter-spacing: .1rem;
+    transition: all .3s;
+}
+
+//ESTILO PADRAO PARA SUBTITULOS
+@mixin subtitulo {
+    letter-spacing: .07rem;
+    color: $cinza-escuro;
+    @include fontSize(14px);
+    @extend %font-padrao;
+    font-weight: 700;
+
+//ESTILO PADRAO PARA TITULOS
+}@mixin titulo {
+    color: $cor-fonte;
+    @include fontSize(30px);
+    @extend %font-padrao;
+    font-weight: 700;
+}
+
+//ADICIONAR DISPLAY FLEX
+@mixin flx($propriedade, $valor){
+    display: flex;
+    #{$propriedade}: $valor;
+}
+
+//MEDIA QUERY
+@mixin for-phone-only { @media screen and(max-width:767px){@content;}}
+@mixin for-tablet-only { @media screen and(max-width:1030px){@content;}}
+
+
+
+
+
+@import 'cabecalho','banner','produto','galeria','detalhes','outros','novidades','menu-mobile','footer';
+
+
+.icon{
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: $cor-fonte;
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    border-radius: 50%;
+    background-image: url(../assets/img/icon-branco.png);    
+    background-size: 2rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0 0 1em rgba(95, 95, 95, 0.301);
+    transition: all .4s;
+    &:hover{
+        transform: scale(1.1);
+        background-color: $vermelho;
+    }
+}

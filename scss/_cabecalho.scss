@@ -1,0 +1,91 @@
+.cabecalho{
+    
+    
+    &__topbar{
+        @include flx(justify-content, flex-end );
+        gap: 2rem;
+        padding: .5rem 2rem;
+        @include for-phone-only{
+            display:none;
+        }
+    }
+
+    &__login{
+        @include links;
+    }
+
+    &__ajuda{
+        @include links;
+    }
+
+    &__logo{
+        max-width: 4rem;
+
+        @include for-phone-only{
+            position: relative;
+            left: 13%;
+        }
+    }
+
+    &__container{
+        @include flx(align-items, center );
+        border-top: 1px solid $cinza-claro ;
+        border-bottom: 1px solid $cinza-claro ;
+        justify-content: space-between;
+        padding:0 2rem;
+        width: 100%;   
+        position: relative;
+        @include for-phone-only{
+            margin-top: .3rem;
+        }   
+    }
+
+    &__carrinho{
+        width: 1rem; 
+    }
+
+    &__menu{
+        @include flx(justify-content, center);
+        flex-wrap: wrap;
+
+        @include for-phone-only{
+            flex-direction: column;
+            position: absolute;
+            z-index: 999;
+            left: -80vw;
+            top: 4rem;
+            width: 80vw;
+            height: calc(100vh - 4rem);
+            justify-content: flex-start;
+            background-color:rgba(21, 26, 49, 0.76);
+            transition: all .5s;
+            backdrop-filter: blur(10px);
+            padding:1rem;
+        }
+    }
+
+    .menu-ativo{
+        left:0;
+    }
+
+    &__links{
+        color: $cor-fonte;
+        padding: 2rem 1rem;
+        display: block;
+        @extend %font-padrao;
+        font-weight: 700;
+        text-transform: uppercase;
+        @include fontSize(14px);
+
+        &:hover{
+            color: $vermelho;
+        }
+
+        @include for-phone-only{
+            color: $branco;
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.623);
+        }
+   }
+}

@@ -1,0 +1,40 @@
+.banner{
+    height: calc(90vh - 7.5rem);
+    background-color: $vermelho;
+    margin: .3rem;
+    @include flx(align-items, center);
+    justify-content: center;
+    position: relative;
+
+    &__titulo{
+        @include fontSize(150px);
+        @extend %font-padrao;
+        color: $branco;
+        margin-left: 4rem;
+        position: relative;
+        &::after{
+            content: '';
+            width: 13rem;
+            height: .8rem;
+            background-color: $branco;
+            position: absolute;
+            left: 1rem;
+            bottom: 0;
+        }
+        @include for-tablet-only{
+            @include fontSize(90px);
+        }
+    }
+
+    &__img{
+        max-width: 40rem;
+        position: absolute;
+        left: 47%;
+        transform: translateX(-50%) rotate(-35deg);
+        transition: all .5s;
+
+        @include for-phone-only{
+        max-width: 15rem;
+        }
+    }
+}
